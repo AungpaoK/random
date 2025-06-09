@@ -1,39 +1,39 @@
 # asm Folder .gitignore
 
-asm/*.o
-asm/*.x
+asm/*/*.o
+asm/*/*.x
 
 # cpp Folder .gitignore
 
 # Prerequisites
-cpp/*.d
+cpp/*/*.d
 
 # Compiled Object files
-cpp/*.slo
-cpp/*.lo
-cpp/*.o
-cpp/*.obj
+cpp/*/*.slo
+cpp/*/*.lo
+cpp/*/*.o
+cpp/*/*.obj
 
 # Precompiled Headers
-cpp/*.gch
-cpp/*.pch
+cpp/*/*.gch
+cpp/*/*.pch
 
 # Compiled Dynamic libraries
-cpp/*.so
-cpp/*.dylib
-cpp/*.dll
+cpp/*/*.so
+cpp/*/*.dylib
+cpp/*/*.dll
 
 # Fortran module files
-cpp/*.mod
-cpp/*.smod
+cpp/*/*.mod
+cpp/*/*.smod
 
 # Compiled Static libraries
-cpp/*.lai
-cpp/*.la
-cpp/*.a
-cpp/*.lib
+cpp/*/*.lai
+cpp/*/*.la
+cpp/*/*.a
+cpp/*/*.lib
 
 # Executables
-cpp/*.exe
-cpp/*.out
-cpp/*.app
+cpp/*/*.exe
+cpp/*/*.out
+cpp/*/*.app
