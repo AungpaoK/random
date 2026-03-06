@@ -28,14 +28,20 @@ SortResult runBenchmark(std::string name, size_t size, void (*sortFunc)(std::vec
 
 int main ()
 {
+  long long itemsAmount;
+
+  std::cout << "--------------------------------------------------\n";
+  std::cout << "Insert items amount: ";
+  std::cin >> itemsAmount;
+  std::cout << "--------------------------------------------------\n";
   std::cout << "Starting Benchmarks with " << omp_get_max_threads() << " threads...\n";
   std::cout << "--------------------------------------------------\n";
 
-  // 100k items for Shell Sort
-  SortResult resShell = runBenchmark("Shell Sort", 100000, shellSort);
+  // 10 Million items for Shell Sort
+  SortResult resShell = runBenchmark("Shell Sort", itemsAmount, shellSort);
     
   // 10 Million items for Parallel Merge Sort
-  SortResult resMerge = runBenchmark("Parallel Merge", 10000000, parallelMergeSort);
+  SortResult resMerge = runBenchmark("Parallel Merge", itemsAmount, parallelMergeSort);
 
   // Output Results
   auto display = [](const SortResult& r)
