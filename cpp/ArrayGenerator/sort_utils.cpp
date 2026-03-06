@@ -1,5 +1,6 @@
 #include "sort_utils.h"
 #include <algorithm>
+#include <vector>
 #include <omp.h>
 
 namespace sortArr
@@ -17,7 +18,7 @@ namespace sortArr
         {
           vec[j] = vec[j-gap];
         }
-        vec[i] = temp;
+        vec[j] = temp;
       }
     }
   }

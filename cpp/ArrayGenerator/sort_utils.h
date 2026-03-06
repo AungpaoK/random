@@ -1,16 +1,14 @@
-#ifdef SORT_UTILS_H
+#ifndef SORT_UTILS_H
 #define SORT_UTILS_H
 
 #include <vector>
-#include <strings>
+#include <string>
 
-namespace sortArr
-{
-  struct SortResult
-  {
+namespace sortArr {
+  struct SortResult {
     std::string name;
     size_t size;
-    long long durationMs;
+    double durationSeconds;
     long long maxValue;
   };
   

@@ -1,8 +1,10 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <vector>
 #include <omp.h>
 #include "sort_utils.h"
+
 using namespace sortArr;
 
 SortResult runBenchmark(std::string name, size_t size, void (*sortFunc)(std::vector<long long>&))
