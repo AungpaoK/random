@@ -29,18 +29,23 @@ SortResult runBenchmark(std::string name, size_t size, void (*sortFunc)(std::vec
 int main ()
 {
   long long itemsAmount;
+  double speedup;
 
   std::cout << "--------------------------------------------------\n";
   std::cout << "Insert items amount: ";
   std::cin >> itemsAmount;
+  
+  if(itemsAmount <= 1)
+  {
+    std::cout << "Invalid Input!";
+    return 1;
+  }
+
   std::cout << "--------------------------------------------------\n";
   std::cout << "Starting Benchmarks with " << omp_get_max_threads() << " threads...\n";
   std::cout << "--------------------------------------------------\n";
 
-  // 10 Million items for Shell Sort
   SortResult resShell = runBenchmark("Shell Sort", itemsAmount, shellSort);
-    
-  // 10 Million items for Parallel Merge Sort
   SortResult resMerge = runBenchmark("Parallel Merge", itemsAmount, parallelMergeSort);
 
   // Output Results
@@ -48,12 +53,23 @@ int main ()
   {
     std::cout << r.name << " [" << r.size << " elements]\n";
     std::cout << "  Time: " << r.durationSeconds << " seconds\n";
-    std::cout << "  Max:  " << r.maxValue << "\n\n";
+    std::cout << "  Max:  " << r.maxValue << "\n";
   };
 
   display(resShell);
   display(resMerge);
 
+  std::cout << "--------------------------------------------------\n";
+
+  if(resMerge.durationSeconds < 0)
+  {
+    std::cout << "MergeSort was too fast to measure accurately\n";
+  }
+  else 
+  {
+    speedup = resShell.durationSeconds / resMerge.durationSeconds;
+  }
+  std::cout << "Merge Sort is " << speedup << " times faster than Shell Sort\n";
   std::cout << "--------------------------------------------------\n";
   return 0;
 }
