@@ -37,3 +37,4 @@ cpp/*/*.lib
 cpp/*/*.exe
 cpp/*/*.out
 cpp/*/*.app
+/cpp/ArrayGenerator/main
